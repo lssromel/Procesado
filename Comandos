@@ -1,0 +1,21 @@
+## Crea un container llamado tmp de la imagen-docker procesado
+
+docker create --name tmp -it procesado
+
+## inicializa el container
+
+docker start tmp
+
+##copia el archivo de mi maquina al container
+
+docker cp hola.py tmp:hola.py
+docker cp mongo.ini tmp:mongo.ini
+
+## deniene el container
+
+docker stop tmp
+
+## elimina el container
+
+docker rm tmp
+ 
