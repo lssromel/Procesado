@@ -8,8 +8,12 @@ docker start tmp
 
 ##copia el archivo de mi maquina al container
 
-docker cp hola.py tmp:hola.py
+docker cp hola.py tmp:/workspace/Procesado/hola.py
 docker cp mongo.ini tmp:mongo.ini
+
+## Correr el .py en el container
+
+
 
 ## deniene el container
 
