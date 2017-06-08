@@ -13,7 +13,7 @@ docker cp mongo.ini tmp:mongo.ini
 
 ## Correr el .py en el container
 
-
+sudo docker exec tmp python.py
 
 ## deniene el container
 

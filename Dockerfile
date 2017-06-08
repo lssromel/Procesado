@@ -13,6 +13,7 @@ RUN pip install setuptools
 RUN pip install import_file pandas
 RUN pip install xlrd
 RUN pip install tables
+RUN pip install bokeh
 WORKDIR /workspace
 RUN git clone https://github.com/lssromel/Procesado.git
 WORKDIR /workspace/Procesado .

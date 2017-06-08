@@ -1,4 +1,9 @@
-
+from bokeh.models.widgets import Panel, Tabs
+from bokeh.io import output_file, show
+from bokeh.plotting import figure
+from bokeh.charts import Bar, output_file, show
+from bokeh.embed import file_html
+from bokeh.resources import CDN
 import pandas as pd
 from pymongo import MongoClient
 import ConfigParser
@@ -17,7 +22,22 @@ tabla=archivos_cargados["viajes"]
 cursor = tabla.find()
 df = pd.DataFrame(list(cursor))
 
-for i in range(len(df)):
-    tabla.update_one({"_id":df.iloc[i]["_id"]},{"$set":{"prueba2":df.iloc[i]["kilometros"]/i+1}})
+output_file("prueba.html")
+
+p = Bar(df.iloc[0:50], label='PLACA', values="Rendimiento menta combustible Meta (Km/Galon)",agg="mean",color="PESO_BRUTO_VEH KG", plot_width=1500, plot_height=1000,
+        title="Desviaciones en los precios de insumos_actividad_unidad",legend=None)
+p.legend.location = "top_left"
+p.legend.click_policy="hide"
+tab1 = Panel(child=p, title="50")
+
+p2 = Bar(df.iloc[0:20], label='PLACA', values="Rendimiento menta combustible Meta (Km/Galon)",agg="mean",color="PESO_BRUTO_VEH KG", plot_width=1500, plot_height=1000,
+        title="Desviaciones en los precios de insumos_actividad_unidad",legend=None)
+p2.legend.location = "top_left"
+p2.legend.click_policy="hide"
+tab2 = Panel(child=p2, title="20")
+
+tabs = Tabs(tabs=[ tab1, tab2 ])
+
+html = file_html(tabs, CDN, "Prueba")
 
 client.close()
