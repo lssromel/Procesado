@@ -31,11 +31,11 @@ cursor=tabla_time.find().limit(1).sort([('time', pymongo.DESCENDING)])
 tiempo=str(list(cursor)[0]["time"])
 
 p = Bar(df.iloc[0:50], label='PLACA', values="Rendimiento menta combustible Meta (Km/Galon)",agg="mean",color="PESO_BRUTO_VEH KG", plot_width=1500, plot_height=1000,
-        title="Desviaciones en los precios de insumos_actividad_unidad"+tiempo)
+        title="Desviaciones en los precios de insumos_actividad_unidad  "+tiempo)
 tab1 = Panel(child=p, title="50")
 
 p2 = Bar(df.iloc[0:20], label='PLACA', values="Rendimiento menta combustible Meta (Km/Galon)",agg="mean",color="PESO_BRUTO_VEH KG", plot_width=1500, plot_height=1000,
-        title="Desviaciones en los precios de insumos_actividad_unidad"+tiempo)
+        title="Desviaciones en los precios de insumos_actividad_unidad  "+tiempo)
 tab2 = Panel(child=p2, title="20")
 
 tabs = Tabs(tabs=[ tab1, tab2 ])
