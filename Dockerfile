@@ -16,4 +16,4 @@ RUN pip install tables
 RUN pip install "bokeh==0.11.0"
 WORKDIR /workspace
 RUN git clone https://github.com/lssromel/Procesado.git
-WORKDIR /workspace/Procesado .
+WORKDIR /workspace/Procesado
